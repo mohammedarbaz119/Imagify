@@ -1,5 +1,6 @@
    declare namespace NodeJS {
       interface ProcessEnv {
         MONGODB_URL:string,
+        WEBHOOK_SECRET:string
       }
     }
