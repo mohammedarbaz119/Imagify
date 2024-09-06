@@ -1,4 +1,4 @@
-import  { models, Schema,model,Document,ObjectId } from "mongoose"
+import  { models, Schema,model,Document} from "mongoose"
 
 
 export interface UserInterface extends Document {
