@@ -25,6 +25,7 @@ export async function POST(req: Request) {
 
   // If there are no headers, error out
   if (!svix_id || !svix_timestamp || !svix_signature) {
+    console.log("idhar problem hai shyd")
     return new Response("Error occured -- no svix headers", {
     });
   }
@@ -47,6 +48,7 @@ export async function POST(req: Request) {
     }) as WebhookEvent;
   } catch (err) {
     console.error("Error verifying webhook:", err);
+    console.log("i was here")
     return new Response("Error occured", {
       status: 400,
     });
@@ -70,6 +72,7 @@ export async function POST(req: Request) {
     };
 
     const newUser = await createUser(user);
+    console.log("user created")
 
     // Set public metadata
     if (newUser) {
@@ -95,6 +98,7 @@ export async function POST(req: Request) {
     };
 
     const updatedUser = await updateUser(id, user);
+    console.log("user updatedted")
 
     return NextResponse.json({ message: "OK", user: updatedUser });
   }
