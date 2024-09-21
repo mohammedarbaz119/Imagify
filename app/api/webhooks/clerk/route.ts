@@ -11,6 +11,7 @@ export async function POST(req: Request) {
   const WEBHOOK_SECRET = process.env.WEBHOOK_SECRET;
   console.log(WEBHOOK_SECRET)
   let evt: WebhookEvent;
+  let body,payload
 
   if (!WEBHOOK_SECRET) {
     console.log("no sevret")
@@ -18,7 +19,7 @@ export async function POST(req: Request) {
       "Please add WEBHOOK_SECRET from Clerk Dashboard to .env or .env.local"
     );
   }
-try{
+  try{
   // Get the headers
   const headerPayload = headers();
   const svix_id = headerPayload.get("svix-id");
@@ -33,8 +34,8 @@ try{
   }
 
   // Get the body
-  const payload = await req.json();
-  const body = JSON.stringify(payload);
+  payload = await req.json();
+  body = JSON.stringify(payload);
 
   // Create a new Svix instance with your secret.
   const wh = new Webhook(WEBHOOK_SECRET);
