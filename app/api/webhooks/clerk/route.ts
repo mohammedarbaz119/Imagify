@@ -27,7 +27,7 @@ export async function POST(req: Request) {
   if (!svix_id || !svix_timestamp || !svix_signature) {
     console.log("idhar problem hai shyd")
     return new Response("Error occured -- no svix headers", {
-    });
+    status:500});
   }
 
   // Get the body
