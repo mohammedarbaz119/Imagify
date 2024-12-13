@@ -34,6 +34,6 @@ const UserSchema = new Schema({
     creditBalance:{type:Number,default:10},
 },{timestamps:true})
 
-const User = models?.User || model("User",UserSchema)
+const User = models?.User || model<UserInterface>("User",UserSchema)
 
 export default User;

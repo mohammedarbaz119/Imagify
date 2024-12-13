@@ -7,7 +7,6 @@ export default function layout({ children }: { children: React.ReactNode }) {
     <main className="root">
       <SideBar />
       <MobileNav />
-
       <div className="root-container">
         <div className="wrapper">{children}</div>
       </div>

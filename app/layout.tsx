@@ -3,6 +3,7 @@ import type { Metadata } from "next";
 import { IBM_Plex_Sans } from "next/font/google";
 import "./globals.css";
 import { cn } from "@/lib/utils";
+import { Toaster } from "@/components/ui/toaster";
 
 const inter = IBM_Plex_Sans({
   subsets: ["latin"],
@@ -29,7 +30,8 @@ export default function RootLayout({
     >
       <html lang="en">
         <body className={cn("font-IBMPlex antialiased", inter.variable)}>
-          {children}
+          <main>{children}</main>
+          <Toaster />
         </body>
       </html>
     </ClerkProvider>
